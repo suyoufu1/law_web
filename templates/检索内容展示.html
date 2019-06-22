@@ -1,0 +1,268 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--<LINK rel="stylesheet" href="https:/cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/staticRes/js/html5shiv.js"></script>
+<script type="text/javascript" src="/staticRes/js/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="../static/plugin/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="../static/plugin/Hui-iconfont/1.0.8/iconfont.min.css" />
+<link rel="stylesheet" type="text/css" href="../static/css/common.css" />
+
+  
+  <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" href="../static/css/demo.css" />
+  <link rel="stylesheet" href="../static/css/templatemo-style.css">
+  <link rel="stylesheet" href="../static/css/page.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="../static/js/jquery-2.2.3.min.js"></script>
+  <script src="../static/js/page.js"></script>
+
+  <script type="text/javascript">
+	$(function() {
+	  $("#submitBtn").click(function() {
+      $('#echoResult_load').load("/Load/" + $('input[name="echoText"]').val());
+      });
+	});
+  </script>
+
+
+  
+
+  
+		
+<!--[if lt IE 9]>
+<link href="/staticRes/lib/h-ui/css/H-ui.ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } function showSide(){$('.navbar-nav').toggle();}</script>
+	
+
+</head>
+<body>
+
+
+
+<div class="container-fluid" style="background-image:url(../static/img/2.jpg); background-size:cover; height:250px">
+<header class="navbar-wrapper">
+  <div class="navbar navbar-fixed-top"></div>
+</header>
+
+				<div class="row cb-slideshow-text-container ">
+					<div style="margin:auto; left:0; right:0; margin-top:-20px;">
+					
+					  <h1 style="font-size:50px; font-weight:bold; font-family:'Times New Roman', Times, serif; color:#FFF; ">法律裁判文书要素检索与展示</h1>
+					<P class="mb-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</P>
+		
+
+                    <form action="/法律要素检索/keyword" method="post" class="subscribe-form">
+                    
+
+      
+               	    	<div class="row form-section">
+                        <table width="90%">
+                        <tr>
+                        <td style="vertical-align:top">
+                        <div style="float:right; margin-right:15px">
+                            <!--
+                                 <select style="height:auto;font-family:'Times New Roman', Times, serif" class="form-control"  >
+        <option value="">详细检索</option>                         
+        <option value="0">特征词</option>
+        <option value="1">当事人</option>
+        <option value="2">律师</option>
+        <option value="3">法院</option>
+      </select>
+      -->
+      </div></td>
+        
+                                             					
+   
+
+							<td width="400px" style="vertical-align:top"><div>
+                     
+       
+                     
+		                      <input onkeypress="if(event.keyCode==13) {submitBtn.click();return false;}" style="width:600px;font-family:'Times New Roman', Times, serif"  class="form-control"  name="keyword" placeholder="请输入案情描述关键词、案情标题、涉案人员等信息" >
+                                   <!--<div>
+                                   <input type="radio" name="check" value="site" id="searchSite" checked />
+                                 <label style="font-size:18px;  font-family:'Times New Roman', Times, serif; color:#FFF">刑事&nbsp;</label>
+                                   <input type="radio" name="check" value="site" id="searchSite" />
+                                 <label style="font-size:18px;  font-family:'Times New Roman', Times, serif; color:#FFF">行政&nbsp;</label>
+                                   <input type="radio" name="check" value="site" id="searchSite" checked />
+                                 <label style="font-size:18px; font-family:'Times New Roman', Times, serif;color:#FFF">民商事&nbsp;</label>
+                                 
+                                 
+                                  </div>
+                                  -->
+			
+				  			</div></td>
+                            
+							<td style="vertical-align:top"><div style=" margin-left:10px">
+								<button type="submit" class="tm-btn-subscribe" style="font-family:'Times New Roman', Times, serif">检索</button>
+							</div></td>
+                            </tr>
+                            </table>                         
+                            
+                            
+						
+						</div>
+                        
+                    </form>
+                    
+					
+
+					</div>
+				</div>
+</div> 
+
+<section class="container pt-20">
+	<!--<div class="Huialert Huialert-info"><i class="Hui-iconfont">&#xe6a6;</i>成功状态提示</div>-->
+  <!--left-->
+  <span class="index_arc_item"></a></span>
+  <div style="margin-top:20px"class="col-sm-3 col-md-3">
+
+  	
+  	
+        
+  	
+        
+  	
+      <!--法院-->
+
+  	<div class="bg-fff box-shadow radius mb-20">
+			<div class="tab-category">
+				<a href=""><strong>法院</strong></a>
+			</div>
+			<div class="tab-category-item">
+                    {% for court in court[0:20]%}
+				<ul class="index_recd">
+					<li>
+						<a href="{{ url_for('court1',court1=court.court) }}">{{court.court}}</a>
+						<!--<p class="hits"><i class="Hui-iconfont" title="点击量"></i> (276) </p>-->
+					</li>
+                </ul>
+                {% endfor %}
+			</div>
+    </div>
+    
+
+        <!--地域-->
+
+        <div class="bg-fff box-shadow radius mb-20">
+            <div class="tab-category">
+                <a href=""><strong>地域</strong></a>
+            </div>
+            <div class="tab-category-item">
+                    {% for region in region[0:20]%}
+                <ul class="index_recd clickTop">
+                    <li>
+                        <a href="{{ url_for('court1',court1=region.region) }}">{{region.region}}</a>
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+        </form>
+        <!--案件类型-->
+
+        <div class="bg-fff box-shadow radius mb-20">
+            <div class="tab-category">
+                <a href=""><strong>案件类型</strong></a>
+            </div>
+            <div class="tab-category-item">
+                    {% for document_Type in document_Type%}
+                <ul class="index_recd clickTop">
+                    <li>
+                        <a href="{{ url_for('court1',court1=document_Type.document_Type) }}">{{document_Type.document_Type}}</a>    
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+
+        
+		
+		</div>
+  
+  
+  <!--right-->
+
+  <div class="col-sm-9 col-md-9">
+      <!--滚动图-->
+      
+  	<div class="slider_main"></div>
+  		
+		<div class="mt-20 bg-fff box-shadow radius mb-5">
+			<div class="tab-category" ><strong>案例</strong></div>
+        </div>
+		<div class="art_content" >
+                {% for result in result %}
+			<ul class="index_arc" >
+                    
+                   
+				<li class="index_arc_item no_pic" style="height:auto">
+                    <div><h4 class="title" style="font-size:15px"><a id="echoResult_title" href="{{ url_for('title',title=result.title) }}">{{result.title}}</a>
+                        </h4>
+                    </div>
+                  
+                  
+                </br>
+                  <div>
+					<div class="date_hits" >
+                        <span>{{result.document_Type}}</span>
+                        <span>{{result.year}}</span>
+                        <span>{{result.court}}</span>
+                    </div>
+                    <div class="date_hits" >
+                    {{result.information_people}}
+                    </div>
+                                 
+                </li>
+                
+
+                
+          </ul>
+          {% endfor %}
+         
+        </div>
+        <div style="text-align: center"></div>
+        
+  </div> 
+  </form>
+</section>
+<footer class="footer mt-20"></footer>
+<script type="text/javascript" src="../static/plugin/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="../static/plugin/layer/3.0/layer.js"></script>
+<script type="text/javascript" src="../static/plugin/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="../static/js/common.js"></script>
+<script> $(function(){ $(window).on("scroll",backToTopFun); backToTopFun(); }); </script>
+<script type="text/javascript" src="../static/plugin/jquery.SuperSlide/2.1.1/jquery.SuperSlide.min.js"></script>
+
+<script>
+$(function(){
+//幻灯片
+jQuery(".slider_main .slider").slide({mainCell: ".bd ul", titCell: ".hd li", trigger: "mouseover", effect: "leftLoop", autoPlay: true, delayTime: 700, interTime: 2000, pnLoop: true, titOnClassName: "active"})
+//tips
+jQuery(".slideTxtBox").slide({titCell: ".hd ul", mainCell: ".bd ul", autoPage: true, effect: "top", autoPlay: true});
+//标签
+	$(".tags a").each(function(){
+		var x = 9;
+		var y = 0;
+		var rand = parseInt(Math.random() * (x - y + 1) + y);
+		$(this).addClass("tags"+rand)
+	});
+	
+	$("img.lazyload").lazyload({failurelimit : 3});
+});
+
+</script> 
+
+</body>
+</html>
